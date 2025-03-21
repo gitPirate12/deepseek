@@ -12,7 +12,7 @@ export const useAppContext = () => {
 export const AppContextProvider = ({ children }) => {
   const { user } = useUser();
 
-  const { value } = {
+  const  value  = {
     user
   }
 
