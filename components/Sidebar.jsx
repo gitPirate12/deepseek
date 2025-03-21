@@ -3,11 +3,14 @@ import Image from 'next/image';
 import React from 'react';
 import { useClerk, UserButton } from '@clerk/nextjs';
 import { useAppContext } from '@/context/AppContext';
+import ChatLabel from './ChatLabel';
+import { useState } from 'react';
 
 const Sidebar = ({ expand, SetExpand }) => {
 
   const {openSignIn} = useClerk();
   const {user} = useAppContext();
+  const [openMenu, setOpenMenu] = useState({id:0, open:false});
 
   return (
     <div
@@ -79,7 +82,7 @@ const Sidebar = ({ expand, SetExpand }) => {
 
         <div className={`mt-8 text-white/25 text-sm ${expand ? 'block' : 'hidden'}`}>
           <p className='my-1'>Recents</p>
-          {/* --chatlabel-- */}
+          <ChatLabel openMenu = {openMenu} setOpenMenu= {setOpenMenu}/>
         </div>
       </div>
 
