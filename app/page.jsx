@@ -24,7 +24,7 @@ export default function Home() {
           </div>
 
 
-          {messages.length !== 0 ? (
+          {messages.length === 0 ? (
             <>
               <div className='flex items-center gap-3'>
                 <Image src={assets.logo_icon} alt='logo' className='h-16'></Image>
