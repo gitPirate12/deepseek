@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { assets } from '@/assets/assets';
 import Sidebar from '@/components/Sidebar';
 import PromptBox from '@/components/PromptBox';
+import Message from '@/components/Message';
 
 export default function Home() {
 
@@ -23,7 +24,7 @@ export default function Home() {
           </div>
 
 
-          {messages.length === 0 ? (
+          {messages.length !== 0 ? (
             <>
               <div className='flex items-center gap-3'>
                 <Image src={assets.logo_icon} alt='logo' className='h-16'></Image>
@@ -33,7 +34,9 @@ export default function Home() {
             </>
           ) :
             (
-              <div></div>)
+              <div>
+                <Message role= 'user' content='what is next js'/>
+              </div>)
           }
 
           <PromptBox isLoading= {isLoading} setIsLoading = {setIsLoading}/>
